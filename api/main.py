@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from api.database import engine
+import uvicorn
 
 # Routes
 from api.routes.user_router import router as user_router
@@ -33,3 +34,9 @@ app.include_router(taxonomy_router)
 app.include_router(product_router)
 app.include_router(menu_item_router)
 app.include_router(menu_item_price_router)
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# For Vercel to recognize the app
+handler = app
