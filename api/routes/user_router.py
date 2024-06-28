@@ -7,11 +7,11 @@ from typing import List
 
 router = APIRouter()
 
-@router.get("/", response_model=dict)
+@router.get("/", response_model=dict, summary="API to check Server Health", tags=["Health"])
 async def health_check():
   return {"status": "Healthy"}
 
-@router.get("/users", response_model=List[UserSchema])
+@router.get("/users", response_model=List[UserSchema], summary="Sample API intial setup with Users", tags=["Sample Users"])
 async def read_users(db: Session = Depends(get_db)):
   users = get_users(db)
   return users

@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 class Product(BaseModel):
   Product_id: int
@@ -13,3 +14,10 @@ class Product(BaseModel):
 
 class ProductCreate(Product):
   pass
+
+class ProductUpdate(BaseModel):
+  Name: Optional[str]
+  Description: Optional[str]
+  Taxonomy_id: Optional[int]
+  Country: Optional[str]
+  Brand: Optional[str]

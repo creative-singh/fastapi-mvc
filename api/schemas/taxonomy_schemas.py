@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 class Taxonomy(BaseModel):
   Taxonomy_id: int
@@ -12,3 +13,9 @@ class Taxonomy(BaseModel):
 
 class TaxonomyCreate(Taxonomy):
   pass
+
+class TaxonomyUpdate(BaseModel):
+  Name: Optional[str]
+  Description: Optional[str]
+  Channel: Optional[str]
+  Category: Optional[str]

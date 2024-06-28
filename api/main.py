@@ -22,7 +22,11 @@ ProductBase.metadata.create_all(bind=engine)
 MenuItemBase.metadata.create_all(bind=engine)
 MenuItemPriceBase.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(
+  title="Fast API created on June 28th, 2024",
+  description="This is a detailed documentation API.",
+  version="1.1.1"
+)
 
 app.include_router(user_router)
 app.include_router(taxonomy_router)
